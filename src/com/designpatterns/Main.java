@@ -8,6 +8,7 @@ import com.designpatterns.strategy.BlackAndWhiteFilter;
 import com.designpatterns.strategy.ImageStore;
 import com.designpatterns.strategy.JpegCompressor;
 import com.designpatterns.strategy.PngCompressor;
+import com.designpatterns.template.TransferMoneyTask;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,11 +42,16 @@ public class Main {
         }
         */
 
+        /* Strategy Pattern
         var imageStore = new ImageStore(new JpegCompressor(),
                 new BlackAndWhiteFilter());
         imageStore.store("a");
         var imageStore2 = new ImageStore(new PngCompressor(),
                 new BlackAndWhiteFilter());
         imageStore2.store("b");
+         */
+
+        var task = new TransferMoneyTask();
+        task.execute();
     }
 }
