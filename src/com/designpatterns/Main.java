@@ -4,6 +4,10 @@ import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
 import com.designpatterns.memento.History;
+import com.designpatterns.strategy.BlackAndWhiteFilter;
+import com.designpatterns.strategy.ImageStore;
+import com.designpatterns.strategy.JpegCompressor;
+import com.designpatterns.strategy.PngCompressor;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +27,7 @@ public class Main {
         System.out.println(editor.getContent());
          */
 
+        /* Iterator Pattern
         var history = new BrowserHistory();
         history.push("a");
         history.push("b");
@@ -34,5 +39,13 @@ public class Main {
             System.out.println(url);
             iterator.next();
         }
+        */
+
+        var imageStore = new ImageStore(new JpegCompressor(),
+                new BlackAndWhiteFilter());
+        imageStore.store("a");
+        var imageStore2 = new ImageStore(new PngCompressor(),
+                new BlackAndWhiteFilter());
+        imageStore2.store("b");
     }
 }
