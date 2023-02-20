@@ -11,6 +11,10 @@ import com.designpatterns.observer.DataSource;
 import com.designpatterns.observer.SpreadSheet;
 import com.designpatterns.strategy.*;
 import com.designpatterns.template.TransferMoneyTask;
+import com.designpatterns.visitor.AnchorNode;
+import com.designpatterns.visitor.HeadingNode;
+import com.designpatterns.visitor.HighlightOperation;
+import com.designpatterns.visitor.HtmlDocument;
 
 public class Main {
     public static void main(String[] args) {
@@ -58,7 +62,7 @@ public class Main {
         task.execute();
          */
 
-        /* Observer Patter
+        /* Observer Pattern
         var dataSource = new DataSource();
         var sheet1 = new SpreadSheet(dataSource);
         var sheet2 = new SpreadSheet(dataSource);
@@ -71,11 +75,19 @@ public class Main {
         dataSource.setValue(1);
          */
 
+        /* Chain of Responsability Pattern
         var compressor = new Compressor(null);
         var logger = new Logger(compressor);
         var authenticator = new Authenticator(logger);
         var server = new WebServer(authenticator);
 
         server.handle(new HttpRequest("admin", "123"));
+         */
+
+        var document = new HtmlDocument();
+        document.add(new HeadingNode());
+        document.add(new AnchorNode());
+        document.execute(new HighlightOperation());
+
     }
 }
