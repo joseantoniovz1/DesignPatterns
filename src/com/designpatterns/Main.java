@@ -1,5 +1,7 @@
 package com.designpatterns;
 
+import com.designpatterns.chainOfResponsability.*;
+import com.designpatterns.chainOfResponsability.Compressor;
 import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
@@ -7,10 +9,7 @@ import com.designpatterns.memento.History;
 import com.designpatterns.observer.Chart;
 import com.designpatterns.observer.DataSource;
 import com.designpatterns.observer.SpreadSheet;
-import com.designpatterns.strategy.BlackAndWhiteFilter;
-import com.designpatterns.strategy.ImageStore;
-import com.designpatterns.strategy.JpegCompressor;
-import com.designpatterns.strategy.PngCompressor;
+import com.designpatterns.strategy.*;
 import com.designpatterns.template.TransferMoneyTask;
 
 public class Main {
@@ -59,6 +58,7 @@ public class Main {
         task.execute();
          */
 
+        /* Observer Patter
         var dataSource = new DataSource();
         var sheet1 = new SpreadSheet(dataSource);
         var sheet2 = new SpreadSheet(dataSource);
@@ -69,5 +69,13 @@ public class Main {
         dataSource.addObserver(chart);
 
         dataSource.setValue(1);
+         */
+
+        var compressor = new Compressor(null);
+        var logger = new Logger(compressor);
+        var authenticator = new Authenticator(logger);
+        var server = new WebServer(authenticator);
+
+        server.handle(new HttpRequest("admin", "123"));
     }
 }
