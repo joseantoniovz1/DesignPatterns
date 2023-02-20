@@ -4,6 +4,9 @@ import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
 import com.designpatterns.memento.History;
+import com.designpatterns.observer.Chart;
+import com.designpatterns.observer.DataSource;
+import com.designpatterns.observer.SpreadSheet;
 import com.designpatterns.strategy.BlackAndWhiteFilter;
 import com.designpatterns.strategy.ImageStore;
 import com.designpatterns.strategy.JpegCompressor;
@@ -51,7 +54,20 @@ public class Main {
         imageStore2.store("b");
          */
 
+        /* Template Patter
         var task = new TransferMoneyTask();
         task.execute();
+         */
+
+        var dataSource = new DataSource();
+        var sheet1 = new SpreadSheet(dataSource);
+        var sheet2 = new SpreadSheet(dataSource);
+        var chart = new Chart(dataSource);
+
+        dataSource.addObserver(sheet1);
+        dataSource.addObserver(sheet2);
+        dataSource.addObserver(chart);
+
+        dataSource.setValue(1);
     }
 }
