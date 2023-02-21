@@ -13,6 +13,9 @@ import com.designpatterns.decorator.CloudStream;
 import com.designpatterns.decorator.CompressCloudStream;
 import com.designpatterns.decorator.EncryptedCloudStream;
 import com.designpatterns.decorator.Stream;
+import com.designpatterns.facade.Message;
+import com.designpatterns.facade.NotificationServer;
+import com.designpatterns.facade.NotificationService;
 import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
@@ -26,6 +29,8 @@ import com.designpatterns.visitor.AnchorNode;
 import com.designpatterns.visitor.HeadingNode;
 import com.designpatterns.visitor.HighlightOperation;
 import com.designpatterns.visitor.HtmlDocument;
+
+import java.lang.reflect.Member;
 
 public class Main {
     public static void main(String[] args) {
@@ -123,11 +128,18 @@ public class Main {
         imageView.apply(new CaramelFilter(new Caramel()));
          */
 
-        // Decorator Pattern
+        /* Decorator Pattern
         storeCreditCard(new EncryptedCloudStream(new CompressCloudStream(new CloudStream())));
+         */
+
+        // Facade Pattern
+        var service = new NotificationService();
+        service.send("Hello Message", "target");
     }
 
+    /*
     public static void storeCreditCard(Stream stream) {
         stream.write("123-123-123-1234");
     }
+     */
 }
