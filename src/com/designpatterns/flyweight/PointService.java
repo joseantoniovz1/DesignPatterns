@@ -1,0 +1,21 @@
+package com.designpatterns.flyweight;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PointService {
+
+    private PointIconFactory pointIconFactory;
+
+    public PointService(PointIconFactory pointIconFactory) {
+        this.pointIconFactory = pointIconFactory;
+    }
+
+    public List<Point> getPoints() {
+        List<Point> points = new ArrayList<>();
+        var point = new Point(1, 2, pointIconFactory.getPointIcon(PointType.HOSPITAL));
+        points.add(point);
+        return points;
+    }
+
+}
