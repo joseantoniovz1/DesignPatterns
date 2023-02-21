@@ -2,6 +2,8 @@ package com.designpatterns;
 
 import com.designpatterns.chainOfResponsability.*;
 import com.designpatterns.chainOfResponsability.Compressor;
+import com.designpatterns.composite.Group;
+import com.designpatterns.composite.Shape;
 import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
@@ -84,10 +86,28 @@ public class Main {
         server.handle(new HttpRequest("admin", "123"));
          */
 
+        /* Composite Pattern
         var document = new HtmlDocument();
         document.add(new HeadingNode());
         document.add(new AnchorNode());
         document.execute(new HighlightOperation());
+         */
+
+        // Component Pattern
+        var group1 = new Group();
+        group1.add(new Shape());
+        group1.add(new Shape());
+
+        var group2 = new Group();
+        group2.add(new Shape());
+        group2.add(new Shape());
+
+        var group = new Group();
+        group.add(group1);
+        group.add(group2);
+        group.render();
+        group.move();
+
 
     }
 }
