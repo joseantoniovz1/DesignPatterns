@@ -5,6 +5,10 @@ import com.designpatterns.adapter.Image;
 import com.designpatterns.adapter.ImageView;
 import com.designpatterns.adapter.VividFilter;
 import com.designpatterns.adapter.avaFilter.Caramel;
+import com.designpatterns.bridge.AdvancedRemoteControl;
+import com.designpatterns.bridge.RemoteControl;
+import com.designpatterns.bridge.SamsungTV;
+import com.designpatterns.bridge.SonyTV;
 import com.designpatterns.chainOfResponsability.*;
 import com.designpatterns.chainOfResponsability.Compressor;
 import com.designpatterns.composite.Group;
@@ -139,10 +143,15 @@ public class Main {
         service.send("Hello Message", "target");
          */
 
-        // Flyweight Pattern
+        /* Flyweight Pattern
         var service = new PointService(new PointIconFactory());
         for (var point: service.getPoints())
             point.draw();
+         */
+
+        // Bridge Pattern
+        var remoteControl = new AdvancedRemoteControl(new SamsungTV());
+        remoteControl.turnOn();
     }
 
     /*
