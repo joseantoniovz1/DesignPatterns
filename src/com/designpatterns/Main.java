@@ -9,6 +9,10 @@ import com.designpatterns.chainOfResponsability.*;
 import com.designpatterns.chainOfResponsability.Compressor;
 import com.designpatterns.composite.Group;
 import com.designpatterns.composite.Shape;
+import com.designpatterns.decorator.CloudStream;
+import com.designpatterns.decorator.CompressCloudStream;
+import com.designpatterns.decorator.EncryptedCloudStream;
+import com.designpatterns.decorator.Stream;
 import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
@@ -119,5 +123,11 @@ public class Main {
         imageView.apply(new CaramelFilter(new Caramel()));
          */
 
+        // Decorator Pattern
+        storeCreditCard(new EncryptedCloudStream(new CompressCloudStream(new CloudStream())));
+    }
+
+    public static void storeCreditCard(Stream stream) {
+        stream.write("123-123-123-1234");
     }
 }
