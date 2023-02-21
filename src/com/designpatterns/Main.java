@@ -16,6 +16,8 @@ import com.designpatterns.decorator.Stream;
 import com.designpatterns.facade.Message;
 import com.designpatterns.facade.NotificationServer;
 import com.designpatterns.facade.NotificationService;
+import com.designpatterns.flyweight.PointIconFactory;
+import com.designpatterns.flyweight.PointService;
 import com.designpatterns.iterator.BrowserHistory;
 import com.designpatterns.iterator.Iterator;
 import com.designpatterns.memento.Editor;
@@ -132,9 +134,15 @@ public class Main {
         storeCreditCard(new EncryptedCloudStream(new CompressCloudStream(new CloudStream())));
          */
 
-        // Facade Pattern
+        /* Facade Pattern
         var service = new NotificationService();
         service.send("Hello Message", "target");
+         */
+
+        // Flyweight Pattern
+        var service = new PointService(new PointIconFactory());
+        for (var point: service.getPoints())
+            point.draw();
     }
 
     /*
