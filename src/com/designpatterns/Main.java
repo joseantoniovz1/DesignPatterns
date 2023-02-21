@@ -29,6 +29,7 @@ import com.designpatterns.memento.History;
 import com.designpatterns.observer.Chart;
 import com.designpatterns.observer.DataSource;
 import com.designpatterns.observer.SpreadSheet;
+import com.designpatterns.proxy.*;
 import com.designpatterns.strategy.*;
 import com.designpatterns.template.TransferMoneyTask;
 import com.designpatterns.visitor.AnchorNode;
@@ -149,9 +150,19 @@ public class Main {
             point.draw();
          */
 
-        // Bridge Pattern
+        /* Bridge Pattern
         var remoteControl = new AdvancedRemoteControl(new SamsungTV());
         remoteControl.turnOn();
+         */
+
+        // Proxy Pattern
+        var library = new Library();
+        String[] fileNames = {"a", "b", "c"};
+        for (var fileName: fileNames)
+            library.add(new LoggingEbookProxy(fileName));
+
+        library.openEbook("a");
+        library.openEbook("b");
     }
 
     /*
