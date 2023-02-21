@@ -1,5 +1,10 @@
 package com.designpatterns;
 
+import com.designpatterns.adapter.CaramelFilter;
+import com.designpatterns.adapter.Image;
+import com.designpatterns.adapter.ImageView;
+import com.designpatterns.adapter.VividFilter;
+import com.designpatterns.adapter.avaFilter.Caramel;
 import com.designpatterns.chainOfResponsability.*;
 import com.designpatterns.chainOfResponsability.Compressor;
 import com.designpatterns.composite.Group;
@@ -93,7 +98,7 @@ public class Main {
         document.execute(new HighlightOperation());
          */
 
-        // Component Pattern
+        /* Component Pattern
         var group1 = new Group();
         group1.add(new Shape());
         group1.add(new Shape());
@@ -107,7 +112,12 @@ public class Main {
         group.add(group2);
         group.render();
         group.move();
+        */
 
+        /* Adapter Pattern
+        var imageView = new ImageView(new Image());
+        imageView.apply(new CaramelFilter(new Caramel()));
+         */
 
     }
 }
