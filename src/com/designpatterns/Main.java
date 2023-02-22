@@ -20,6 +20,7 @@ import com.designpatterns.decorator.Stream;
 import com.designpatterns.facade.Message;
 import com.designpatterns.facade.NotificationServer;
 import com.designpatterns.facade.NotificationService;
+import com.designpatterns.factory.ProductsController;
 import com.designpatterns.flyweight.PointIconFactory;
 import com.designpatterns.flyweight.PointService;
 import com.designpatterns.iterator.BrowserHistory;
@@ -168,14 +169,16 @@ public class Main {
 
         // Prototype Pattern
 
-        //Singleton Pattern
+        /*Singleton Pattern
         ConfigManager manager = ConfigManager.getInstance();
         manager.set("name", "Jose");
 
         ConfigManager other = ConfigManager.getInstance();
         System.out.println(other.get("name"));
+         */
 
-
+        // Factory Method Pattern
+        new ProductsController().listProducts();;
     }
 
     /*
