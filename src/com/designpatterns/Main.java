@@ -12,6 +12,7 @@ import com.designpatterns.bridge.AdvancedRemoteControl;
 import com.designpatterns.bridge.RemoteControl;
 import com.designpatterns.bridge.SamsungTV;
 import com.designpatterns.bridge.SonyTV;
+import com.designpatterns.builder.*;
 import com.designpatterns.chainOfResponsability.*;
 import com.designpatterns.chainOfResponsability.Compressor;
 import com.designpatterns.composite.Group;
@@ -184,8 +185,18 @@ public class Main {
         new ProductsController().listProducts();
          */
 
-        // Abstract Factory Method
+        /* Abstract Factory Method
         new ContractForm().render(new AntWidgetFactory());
+        */
+
+        // Builder Pattern
+        var presentation = new Presentation();
+        presentation.addSlide(new Slide("text1"));
+        presentation.addSlide(new Slide("text2"));
+
+        var builder = new PdfDocumentBuilder();
+        presentation.export(builder);
+        var pdf = builder.getDocument();
     }
 
     /*
