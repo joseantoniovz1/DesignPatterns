@@ -30,6 +30,7 @@ import com.designpatterns.observer.Chart;
 import com.designpatterns.observer.DataSource;
 import com.designpatterns.observer.SpreadSheet;
 import com.designpatterns.proxy.*;
+import com.designpatterns.singleton.ConfigManager;
 import com.designpatterns.strategy.*;
 import com.designpatterns.template.TransferMoneyTask;
 import com.designpatterns.visitor.AnchorNode;
@@ -166,6 +167,14 @@ public class Main {
          */
 
         // Prototype Pattern
+
+        //Singleton Pattern
+        ConfigManager manager = ConfigManager.getInstance();
+        manager.set("name", "Jose");
+
+        ConfigManager other = ConfigManager.getInstance();
+        System.out.println(other.get("name"));
+
 
     }
 
