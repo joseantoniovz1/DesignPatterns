@@ -1,5 +1,8 @@
 package com.designpatterns;
 
+import com.designpatterns.abstractFactory.ant.AntWidgetFactory;
+import com.designpatterns.abstractFactory.app.ContractForm;
+import com.designpatterns.abstractFactory.material.MaterialWidgetFactory;
 import com.designpatterns.adapter.CaramelFilter;
 import com.designpatterns.adapter.Image;
 import com.designpatterns.adapter.ImageView;
@@ -177,8 +180,12 @@ public class Main {
         System.out.println(other.get("name"));
          */
 
-        // Factory Method Pattern
-        new ProductsController().listProducts();;
+        /* Factory Method Pattern
+        new ProductsController().listProducts();
+         */
+
+        // Abstract Factory Method
+        new ContractForm().render(new AntWidgetFactory());
     }
 
     /*
