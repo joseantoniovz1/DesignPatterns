@@ -155,7 +155,7 @@ public class Main {
         remoteControl.turnOn();
          */
 
-        // Proxy Pattern
+        /* Proxy Pattern
         var library = new Library();
         String[] fileNames = {"a", "b", "c"};
         for (var fileName: fileNames)
@@ -163,6 +163,10 @@ public class Main {
 
         library.openEbook("a");
         library.openEbook("b");
+         */
+
+        // Prototype Pattern
+
     }
 
     /*
